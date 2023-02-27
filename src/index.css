@@ -11,3 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+}
+
+#components-layout-demo-top .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 20px 15px;
+}
+
+body {
+  background-color: #F1F5F9;
+  color: #555;
+}
+
+.card {
+  background-color: white;
+  padding: 2.5rem;
+  max-width: 70rem;
+  border-radius: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.judul{
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: center;
+  
+}
+
+.iconchar{
+  display: inline-block;
+}
