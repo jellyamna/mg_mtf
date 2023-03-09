@@ -38,6 +38,16 @@ const Components = () => {
     return "red";
   };
 
+  const onDonePersen = (persen) => {
+    if (nilaipersenmuf === 0) {
+      console.log(nilaipersenmuf);
+
+      return "Done";
+    }
+
+    return nilaipersenmuf;
+  };
+
   const onPercentReverse = (persen) => {
     if (nilaipersenmuf === 0) {
       console.log(nilaipersenmuf);
@@ -122,7 +132,12 @@ const Components = () => {
                       //percent={data?.data.nonrestru_muf_persen}
                       percent={`${onPercentReverse(nilaipersenmuf)}`}
                       //format={(percent) => `${percent} %`}
-                      format={() => "Done"}
+                      //format={`${onDonePersen(nilaipersenmuf)}`}
+                      format={() => {
+                        if (nilaipersenmuf === 0) {
+                          return "Done";
+                        } else return `${nilaipersenmuf} %`;
+                      }}
                       strokeWidth={10}
                       width={180}
                       strokeColor={`${onDone(nilaipersenmuf)} `}
