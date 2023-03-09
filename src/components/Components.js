@@ -264,7 +264,9 @@ const Components = () => {
                   >
                     <Progress
                       type="circle"
-                      percent={data?.data.nonrestru_workflow_customer_persen}
+                      percent={
+                        data?.data.nonrestru_workflow_customer_migrate_persen
+                      }
                       format={(percent) => `${percent} %`}
                       strokeWidth={10}
                       width={180}
@@ -278,13 +280,17 @@ const Components = () => {
                       alignSelf: "center",
                     }}
                   >
-                    Data Static Customer masuk ke Canalis :{" "}
+                    Data Static Customer MUF :{" "}
+                    {data?.data.nonrestru_workflow_customer}
+                    <br />
+                    Data Static Customer migrate ke Canalis :{" "}
                   </Title>
                   <ul>
                     <li>
                       {" "}
                       <text className="detail-text">
-                        Data Customer :{data?.data.nonrestru_workflow_customer}
+                        Data Customer :
+                        {data?.data.nonrestru_workflow_customer_migrate}
                       </text>
                     </li>
                   </ul>
@@ -303,14 +309,14 @@ const Components = () => {
                   marginTop: "20px",
                 }}
               >
-                <Title
+                {/* <Title
                   level={5}
                   style={{
-                    alignSelf: "center",
+                    justifySelf: "end",
                   }}
                 >
-                  {/* Customer */}
-                </Title>
+                  Customer Static : 111
+                </Title> */}
               </div>
 
               <Row gutter={[10, 8]} align="top" justify="center">
@@ -324,7 +330,9 @@ const Components = () => {
                   >
                     <Progress
                       type="circle"
-                      percent={data?.data.nonrestru_workflow_asset_persen}
+                      percent={
+                        data?.data.nonrestru_workflow_asset_migrate_persen
+                      }
                       format={(percent) => `${percent} %`}
                       strokeWidth={10}
                       width={180}
@@ -336,15 +344,20 @@ const Components = () => {
                     level={5}
                     style={{
                       alignSelf: "center",
+                      paddingTop: "2px",
                     }}
                   >
-                    Data Static Asset masuk ke Canalis :{" "}
+                    Data Static Asset MUF :{" "}
+                    {data?.data.nonrestru_workflow_asset}
+                    <br />
+                    Data Static Asset migrate ke Canalis :{" "}
                   </Title>
                   <ul>
                     <li>
                       {" "}
                       <text className="detail-text">
-                        Data Asset :{data?.data.nonrestru_workflow_asset}
+                        Data Asset migrate :
+                        {data?.data.nonrestru_workflow_asset_migrate}
                       </text>
                     </li>
                   </ul>
