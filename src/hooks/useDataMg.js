@@ -2,7 +2,8 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 const fetchSuperHeroes = () => {
-  return axios.get("https://mg-api-fu5l.onrender.com/account");
+  return axios.get("https://www.api.mgcanalis.tech/account");
+  //return axios.get("https://mg-api-fu5l.onrender.com/account");
   // return axios.get("https://jellyamna.github.io/mtf.github.io/db.json");
 };
 
