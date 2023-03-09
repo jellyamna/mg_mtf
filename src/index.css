@@ -60,3 +60,17 @@ body {
 .iconchar{
   display: inline-block;
 }
+
+.box-shadow {
+  border: 2px solid #9fd3c7;
+  padding: 10px;
+  margin: "2px";
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 5px #888888;
+}
+
+.detail-text {
+  /* Your styles here */
+  font-size: 0.9rem;
+}
