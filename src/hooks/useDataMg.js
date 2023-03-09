@@ -11,7 +11,7 @@ export const useDataMg = (onSuccess, onError) => {
   return useQuery("data-mandiri", fetchSuperHeroes, {
     onError,
     onSuccess,
-    refetchInterval: 5000,
+    refetchInterval: 20000,
     refetchIntervalInBackground: true,
     // cacheTime: 1000,
     refetchOnWindowFocus: true,
