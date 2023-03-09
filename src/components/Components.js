@@ -2,17 +2,17 @@ import { QueryClient } from "react-query";
 import "antd/dist/reset.css";
 import { AreaChartOutlined } from "@ant-design/icons";
 import { useDataMg } from "../hooks/useDataMg";
+import CustomerAssetNonRestru from "./CustomerAssetNonRestru";
+import CustomerAssetRestru from "./CustomerAssetRestru";
+import ETLinsertDBNonRestru from "./ETLinsertDBNonRestru";
+import ETLinsertDBRestru from "./ETLinsertDBRestru";
+import AccountMigrationNonRestru from "./AccountMigrationNonRestru";
+import AccountMigrationRestru from "./AccountMigrationRestru";
+import AuditQuery from "./AuditQuery";
+import RekonQuery from "./RekonQuery";
+
 import React from "react";
-import {
-  Typography,
-  Spin,
-  Progress,
-  Space,
-  Col,
-  Row,
-  Slider,
-  Divider,
-} from "antd";
+import { Typography, Spin, Space, Divider } from "antd";
 
 const queryClient = new QueryClient();
 
@@ -25,37 +25,7 @@ const Components = () => {
     console.log("perfom side effect after encountering error ", error);
   };
 
-  let nilaipersenmuf = 0;
   const { isLoading, data, isError, error } = useDataMg(onSuccess, onError);
-
-  const onDone = (persen) => {
-    if (nilaipersenmuf <= 10) {
-      console.log(nilaipersenmuf);
-
-      return " #42b883";
-    }
-
-    return "red";
-  };
-
-  const onDonePersen = (persen) => {
-    if (nilaipersenmuf === 0) {
-      console.log(nilaipersenmuf);
-
-      return "Done";
-    }
-
-    return nilaipersenmuf;
-  };
-
-  const onPercentReverse = (persen) => {
-    if (nilaipersenmuf === 0) {
-      console.log(nilaipersenmuf);
-      return 100;
-    }
-
-    return nilaipersenmuf;
-  };
 
   if (isLoading) {
     // return <h1> Loadingg .... </h1>;
@@ -73,11 +43,6 @@ const Components = () => {
     return <h1> {error.message}</h1>;
   }
 
-  if (data?.data) {
-    nilaipersenmuf = data?.data.nonrestru_muf_persen;
-    console.log(nilaipersenmuf);
-  }
-
   return (
     <>
       <div className="container">
@@ -88,282 +53,63 @@ const Components = () => {
           />
           <Title level={3}> Dashboard Progress Data Migrasi MUF</Title>
         </div>
+
         <div className="card">
           <br />
-
           <div className="circle">
-            <Title level={3}>## Account Non Restru ##</Title>
+            <Title level={3}> ##Account Non Restru##</Title>
             <Divider />
-            <Title level={4} underline={true}>
-              ETL Batch Data Migration
-            </Title>
-
-            <br />
-
-            {/* Account Non Restru */}
-            <div className="box-shadow ">
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginBottom: "5px",
-                }}
-              >
-                <Title
-                  level={5}
-                  style={{
-                    alignSelf: "center",
-                  }}
-                >
-                  JFMUF TO Canalis
-                </Title>
-              </div>
-
-              <Row gutter={[10, 8]} align="top" justify="center">
-                <Col xs={24} sm={24} md={6}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Progress
-                      type="circle"
-                      //percent={data?.data.nonrestru_muf_persen}
-                      percent={`${onPercentReverse(nilaipersenmuf)}`}
-                      //format={(percent) => `${percent} %`}
-                      //format={`${onDonePersen(nilaipersenmuf)}`}
-                      format={() => {
-                        if (nilaipersenmuf === 0) {
-                          return "Done";
-                        } else return `${nilaipersenmuf} %`;
-                      }}
-                      strokeWidth={10}
-                      width={180}
-                      strokeColor={`${onDone(nilaipersenmuf)} `}
-                      //strokeColor="red"
-                    />
-                  </div>
-                </Col>
-                <Col xs={24} sm={24} md={6}>
-                  <Title
-                    level={5}
-                    style={{
-                      alignSelf: "center",
-                    }}
-                  >
-                    Account JFMUF yang akan dipindahkan :{" "}
-                  </Title>
-                  <ul>
-                    <li>
-                      {" "}
-                      <text className="detail-text">
-                        Data Account :{data?.data.nonrestru_muf_static_account}
-                      </text>
-                    </li>
-                    <li>
-                      {" "}
-                      <text className="detail-text">
-                        Data Customer :
-                        {data?.data.nonrestru_muf_static_customer}
-                      </text>
-                    </li>
-                    <li>
-                      {" "}
-                      <text className="detail-text">
-                        Data Asset :{data?.data.nonrestru_muf_static_asset}
-                      </text>
-                    </li>
-                  </ul>
-                </Col>
-
-                <Col xs={24} sm={24} md={6}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      marginLeft: "10px",
-                    }}
-                  >
-                    <Progress
-                      type="circle"
-                      percent={data?.data.nonrestru_canalis_persen}
-                      format={(percent) => `${percent} %`}
-                      strokeWidth={10}
-                      width={180}
-                    />
-                  </div>
-                </Col>
-                <Col xs={24} sm={24} md={6}>
-                  <Title
-                    level={5}
-                    style={{
-                      alignSelf: "center",
-                    }}
-                  >
-                    Account masuk ke Canalis :{" "}
-                    <ul>
-                      <li>
-                        {" "}
-                        <text className="detail-text">
-                          Data Account :
-                          {data?.data.nonrestru_canalis_static_account}
-                        </text>
-                      </li>
-                      <li>
-                        {" "}
-                        <text className="detail-text">
-                          Data Customer :
-                          {data?.data.nonrestru_canalis_static_customer}
-                        </text>
-                      </li>
-                      <li>
-                        {" "}
-                        <text className="detail-text">
-                          Data Asset :
-                          {data?.data.nonrestru_canalis_static_asset}
-                        </text>
-                      </li>
-                    </ul>
-                  </Title>
-                </Col>
-              </Row>
-            </div>
-
+            {/* part 1 */}
+            <ETLinsertDBNonRestru data={data?.data} />
             <Divider />
             {/* part 2 */}
-            <Title level={4} underline={true}>
-              WorkFlow Data Static
-            </Title>
-            <div className="box-shadow ">
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginTop: "20px",
-                }}
-              >
-                <Title
-                  level={5}
-                  style={{
-                    alignSelf: "center",
-                  }}
-                >
-                  {/* Customer */}
-                </Title>
-              </div>
-
-              <Row gutter={[10, 8]} align="top" justify="center">
-                <Col xs={24} sm={24} md={12}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      marginLeft: "10px",
-                    }}
-                  >
-                    <Progress
-                      type="circle"
-                      percent={
-                        data?.data.nonrestru_workflow_customer_migrate_persen
-                      }
-                      format={(percent) => `${percent} %`}
-                      strokeWidth={10}
-                      width={180}
-                    />
-                  </div>
-                </Col>
-                <Col xs={24} sm={24} md={12}>
-                  <Title
-                    level={5}
-                    style={{
-                      alignSelf: "center",
-                    }}
-                  >
-                    Data Static Customer MUF :{" "}
-                    {data?.data.nonrestru_workflow_customer}
-                    <br />
-                    Data Static Customer migrate ke Canalis :{" "}
-                  </Title>
-                  <ul>
-                    <li>
-                      {" "}
-                      <text className="detail-text">
-                        Data Customer :
-                        {data?.data.nonrestru_workflow_customer_migrate}
-                      </text>
-                    </li>
-                  </ul>
-                </Col>
-              </Row>
-            </div>
-
+            <CustomerAssetNonRestru data={data?.data} />
             <Divider />
             {/* part 3 */}
+            <AccountMigrationNonRestru data={data?.data} />
+          </div>
+          <br />
+          <br />
+          <div className="circle">
+            <Title level={3}>## Account Restru ##</Title>
+            <Divider />
+            <ETLinsertDBRestru data={data?.data} />
+            <Divider />
+            <CustomerAssetRestru data={data?.data} />
+            <Divider />
+            <AccountMigrationRestru data={data?.data} />
+          </div>
+          <br />
+          <br />
+          <div className="circle">
+            <Title level={3}>## Audit Query ##</Title>
+            <Divider />
+            <AuditQuery data={data?.data} />
+          </div>
+          <br />
+          <br />
+          <div className="circle">
+            <Title level={3}>## Reconcile Query ##</Title>
+            <Divider />
+            <RekonQuery data={data?.data} />
+          </div>
 
-            <div className="box-shadow ">
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginTop: "20px",
-                }}
-              >
-                {/* <Title
-                  level={5}
-                  style={{
-                    justifySelf: "end",
-                  }}
-                >
-                  Customer Static : 111
-                </Title> */}
-              </div>
-
-              <Row gutter={[10, 8]} align="top" justify="center">
-                <Col xs={24} sm={24} md={12}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      marginLeft: "10px",
-                    }}
-                  >
-                    <Progress
-                      type="circle"
-                      percent={
-                        data?.data.nonrestru_workflow_asset_migrate_persen
-                      }
-                      format={(percent) => `${percent} %`}
-                      strokeWidth={10}
-                      width={180}
-                    />
-                  </div>
-                </Col>
-                <Col xs={24} sm={24} md={12}>
-                  <Title
-                    level={5}
-                    style={{
-                      alignSelf: "center",
-                      paddingTop: "2px",
-                    }}
-                  >
-                    Data Static Asset MUF :{" "}
-                    {data?.data.nonrestru_workflow_asset}
-                    <br />
-                    Data Static Asset migrate ke Canalis :{" "}
-                  </Title>
-                  <ul>
-                    <li>
-                      {" "}
-                      <text className="detail-text">
-                        Data Asset migrate :
-                        {data?.data.nonrestru_workflow_asset_migrate}
-                      </text>
-                    </li>
-                  </ul>
-                </Col>
-              </Row>
-            </div>
+          <br />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "40px",
+              marginBottom: "1",
+              paddingBottom: "1",
+            }}
+          >
+            <footer>
+              <p>
+                Copyright &copy; 2022-2023 RCB Canalis Team. All rights
+                reserved.
+              </p>
+            </footer>
           </div>
         </div>
       </div>
