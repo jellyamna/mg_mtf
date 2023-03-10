@@ -1,5 +1,6 @@
 import React from "react";
-import { Typography, Progress, Col, Row, Divider } from "antd";
+import { Typography, Progress, Col, Row } from "antd";
+import Blinking from "./Blinking";
 
 const RekonQuery = (data) => {
   const { Title } = Typography;
@@ -59,7 +60,7 @@ const RekonQuery = (data) => {
                 return (
                   <li key={item.id}>
                     <text className="detail-text">
-                      {item.name} : {item.status}
+                      {item.name} : <Blinking text={item.status} />
                     </text>
                   </li>
                 );

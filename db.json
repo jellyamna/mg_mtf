@@ -3,11 +3,11 @@
     "nonrestru_muf_static_account": "299.000",
     "nonrestru_muf_static_customer": "199.000",
     "nonrestru_muf_static_asset": "300.000",
-    "nonrestru_muf_persen": 0,
+    "nonrestru_muf_persen": 40,
     "nonrestru_canalis_static_account": "11.000",
     "nonrestru_canalis_static_customer": "12.000",
     "nonrestru_canalis_static_asset": "13.000",
-    "nonrestru_canalis_persen": 10,
+    "nonrestru_canalis_persen": 60,
     "nonrestru_workflow_customer": "400.000",
     "nonrestru_workflow_customer_migrate": "12.000",
     "nonrestru_workflow_customer_migrate_persen": 10,
@@ -20,7 +20,7 @@
     "restru_muf_static_account": "10.000",
     "restru_muf_static_customer": "9.000",
     "restru_muf_static_asset": "10.000",
-    "restru_muf_persen": 20,
+    "restru_muf_persen": 70,
     "restru_canalis_static_account": "1.000",
     "restru_canalis_static_customer": "2.000",
     "restru_canalis_static_asset": "3.000",
@@ -39,12 +39,12 @@
       {
         "id": 1,
         "name": "Query 1",
-        "status":"Done"
+        "status":"Start"
       },
       {
         "id": 2,
         "name": "Query 2",
-        "status":"Proseses"
+        "status":"Progress"
       },
       {
         "id": 3,
@@ -62,7 +62,7 @@
       {
         "id": 2,
         "name": "Reconcile 2",
-        "status":"Proseses"
+        "status":"Progress"
       },
       {
         "id": 3,

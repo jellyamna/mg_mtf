@@ -74,8 +74,8 @@ const ETLinsertDBRestru = (data) => {
                 }}
                 strokeWidth={10}
                 width={180}
-                strokeColor={`${onDone(nilaipersenmuf)} `}
-                //strokeColor="red"
+                //strokeColor={`${onDone(nilaipersenmuf)} `}
+                strokeColor="blue"
               />
             </div>
           </Col>
@@ -124,6 +124,7 @@ const ETLinsertDBRestru = (data) => {
                 format={(percent) => `${percent} %`}
                 strokeWidth={10}
                 width={180}
+                strokeColor="green"
               />
             </div>
           </Col>

@@ -14,6 +14,7 @@ import RekonQuery from "./RekonQuery";
 import React from "react";
 import { Typography, Spin, Space, Divider } from "antd";
 
+
 const queryClient = new QueryClient();
 
 const { Title } = Typography;
@@ -104,6 +105,7 @@ const Components = () => {
               paddingBottom: "1",
             }}
           >
+
             <footer>
               <p>
                 Copyright &copy; 2022-2023 RCB Canalis Team. All rights

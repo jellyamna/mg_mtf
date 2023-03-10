@@ -48,4 +48,34 @@ display: flex;
 
 
 
+.blinkingtext {
+ 
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
 
+@keyframes blink {
+  0% {
+    color: blue;
+  }
+
+  50% {
+    color: #ccc;
+  }
+
+  100% {
+    color: blue;
+  }
+}
+
+.normaltext {
+
+  color:rgb(249, 148, 23);
+  font-weight: bold;
+}
+
+.donetext {
+
+  color: rgb(101, 136, 100);
+  font-weight: bold;
+}
