@@ -1,13 +1,13 @@
 import React from "react";
 import { Typography, Progress, Col, Row } from "antd";
-import Blinking from "./Blinking";
+import BlinkingStatus from "./BlinkingStatus";
 
 const RekonQuery = (data) => {
   const { Title } = Typography;
   return (
     <>
       <Title level={4} underline={true}>
-        8. Item Reconcile Query :
+        8. Process Reconcile Query :
       </Title>
       <div className="box-shadow ">
         <div
@@ -28,7 +28,7 @@ const RekonQuery = (data) => {
         </div>
 
         <Row gutter={[10, 8]} align="top" justify="center">
-          <Col xs={24} sm={24} md={12}>
+          <Col xs={24} sm={24} >
             <div
               style={{
                 display: "flex",
@@ -45,27 +45,21 @@ const RekonQuery = (data) => {
               />
             </div>
           </Col>
-          <Col xs={24} sm={24} md={12}>
-            <Title
-              level={5}
+ 
+          <Col xs={24} sm={24} md={24}>
+            <div
               style={{
-                alignSelf: "center",
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "10px",
               }}
             >
-              Item Query Reconcile Canalis :{" "}
-            </Title>
-
-            <ul>
-              {data?.data.rekon.map((item) => {
-                return (
-                  <li key={item.id}>
-                    <text className="detail-text">
-                      {item.name} : <Blinking text={item.status} />
-                    </text>
-                  </li>
-                );
-              })}
-            </ul>
+              <h2>
+                <BlinkingStatus
+                  text={data?.data.audit_query_persen_status_job}
+                />
+              </h2>
+            </div>
           </Col>
         </Row>
       </div>

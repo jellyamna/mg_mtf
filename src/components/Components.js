@@ -52,7 +52,7 @@ const Components = () => {
             style={{ fontSize: "36px", color: "#08c" }}
             className="iconchar"
           />
-          <Title level={3}> Dashboard Progress Data Migrasi MUF</Title>
+          <Title level={3}> Dashboard DM JF MUF to Canalis</Title>
         </div>
 
         <div className="card">
@@ -108,8 +108,7 @@ const Components = () => {
 
             <footer>
               <p>
-                Copyright &copy; 2022-2023 RCB Canalis Team. All rights
-                reserved.
+               10 - 13 Maret 2023
               </p>
             </footer>
           </div>

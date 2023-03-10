@@ -1,12 +1,14 @@
 import React from "react";
 import { Typography, Progress, Col, Row, Divider } from "antd";
+import BlinkingNum from "./BlinkingNum";
+import BlinkingStatus from "./BlinkingStatus";
 
 const CustomerAssetRestru = (data) => {
   const { Title } = Typography;
   return (
     <>
       <Title level={4} underline={true}>
-        5. WorkFlow Data Static (Customer- Asset)
+        5. Eksekusi Service DM - Customer & Asset
       </Title>
       <div className="box-shadow ">
         <div
@@ -27,7 +29,7 @@ const CustomerAssetRestru = (data) => {
         </div>
 
         <Row gutter={[10, 8]} align="top" justify="center">
-          <Col xs={24} sm={24} md={12}>
+          <Col xs={24} sm={24} >
             <div
               style={{
                 display: "flex",
@@ -44,27 +46,54 @@ const CustomerAssetRestru = (data) => {
               />
             </div>
           </Col>
-          <Col xs={24} sm={24} md={12}>
-            <Title
-              level={5}
+          <Col xs={24} sm={24} >
+            <div
               style={{
-                alignSelf: "center",
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "10px",
               }}
             >
-              Data Static Customer MUF :{" "}
-              {data?.data.restru_workflow_customer}
-              <br />
-              Data Static Customer migrate ke Canalis :{" "}
-            </Title>
-            <ul>
+              <Title
+                level={5}
+                style={{
+                  alignSelf: "center",
+                }}
+              >
+                {/* Data Static Customer MUF : {data?.data.restru_workflow_customer}
+                 */}
+                <br />
+                Progress :{" "}
+                <BlinkingNum
+                  num={data?.data.restru_workflow_customer_migrate}
+                  num2={data?.data.restru_workflow_customer}
+                />{" "}
+                / {data?.data.restru_workflow_customer}
+              </Title>
+            </div>
+            {/* <ul>
               <li>
                 {" "}
                 <text className="detail-text">
-                  Data Customer :
-                  {data?.data.restru_workflow_customer_migrate}
+                  Data Customer :{data?.data.restru_workflow_customer_migrate}
                 </text>
               </li>
-            </ul>
+            </ul> */}
+          </Col>
+          <Col xs={24} sm={24} md={24}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "10px",
+              }}
+            >
+              <h2>
+                <BlinkingStatus
+                  text={data?.data.restru_workflow_customer_status_job}
+                />
+              </h2>
+            </div>
           </Col>
         </Row>
       </div>
@@ -91,7 +120,7 @@ const CustomerAssetRestru = (data) => {
         </div>
 
         <Row gutter={[10, 8]} align="top" justify="center">
-          <Col xs={24} sm={24} md={12}>
+          <Col xs={24} sm={24} >
             <div
               style={{
                 display: "flex",
@@ -108,27 +137,55 @@ const CustomerAssetRestru = (data) => {
               />
             </div>
           </Col>
-          <Col xs={24} sm={24} md={12}>
-            <Title
-              level={5}
+          <Col xs={24} sm={24} >
+            <div
               style={{
-                alignSelf: "center",
-                paddingTop: "2px",
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "10px",
               }}
             >
-              Data Static Asset MUF : {data?.data.restru_workflow_asset}
-              <br />
-              Data Static Asset migrate ke Canalis :{" "}
-            </Title>
-            <ul>
+              <Title
+                level={5}
+                style={{
+                  alignSelf: "center",
+                  paddingTop: "2px",
+                }}
+              >
+                {/* Data Static Asset MUF : {data?.data.restru_workflow_asset}
+                 */}
+                <br />
+                Progress :{" "}
+                <BlinkingNum
+                  num={data?.data.restru_workflow_asset_migrate}
+                  num2={data?.data.restru_workflow_asset}
+                />{" "}
+                / {data?.data.restru_workflow_asset}
+              </Title>
+            </div>
+            {/* <ul>
               <li>
                 {" "}
                 <text className="detail-text">
-                  Data Asset migrate :
-                  {data?.data.restru_workflow_asset_migrate}
+                  Data Asset migrate :{data?.data.restru_workflow_asset_migrate}
                 </text>
               </li>
-            </ul>
+            </ul> */}
+          </Col>
+          <Col xs={24} sm={24} md={24}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "10px",
+              }}
+            >
+              <h2>
+                <BlinkingStatus
+                  text={data?.data.restru_workflow_asset_status_job}
+                />
+              </h2>
+            </div>
           </Col>
         </Row>
       </div>

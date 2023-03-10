@@ -1,12 +1,14 @@
 import React from 'react';
-import { Typography, Progress, Col, Row, Divider } from "antd";
+import { Typography, Progress, Col, Row } from "antd";
+import BlinkingNum from "./BlinkingNum";
+import BlinkingStatus from "./BlinkingStatus";
 
 const AccountMigrationNonRestru = (data) => {
      const { Title } = Typography;
   return (
     <>
       <Title level={4} underline={true}>
-        3. WorkFlow Account Transaction
+        3. Eksekusi Service DM - Financial
       </Title>
       <div className="box-shadow ">
         <div
@@ -27,7 +29,7 @@ const AccountMigrationNonRestru = (data) => {
         </div>
 
         <Row gutter={[10, 8]} align="top" justify="center">
-          <Col xs={24} sm={24} md={12}>
+          <Col xs={24} sm={24} >
             <div
               style={{
                 display: "flex",
@@ -44,19 +46,32 @@ const AccountMigrationNonRestru = (data) => {
               />
             </div>
           </Col>
-          <Col xs={24} sm={24} md={12}>
-            <Title
-              level={5}
+          <Col xs={24} sm={24} >
+            <div
               style={{
-                alignSelf: "center",
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "10px",
               }}
             >
-              Data Account Transaction MUF :{" "}
-              {data?.data.nonrestru_workflow_account}
-              <br />
-              Data Account Transaction migrate ke Canalis :{" "}
-            </Title>
-            <ul>
+              <Title
+                level={5}
+                style={{
+                  alignSelf: "center",
+                }}
+              >
+                {/* Data Account Transaction MUF :{" "}
+              {data?.data.nonrestru_workflow_account} */}
+                <br />
+                Progress : {"  "}
+                <BlinkingNum
+                  num={data?.data.nonrestru_workflow_account_migrate}
+                  num2={data?.data.nonrestru_workflow_account}
+                />{" "}
+                / {data?.data.nonrestru_workflow_account}
+              </Title>
+            </div>
+            {/* <ul>
               <li>
                 {" "}
                 <text className="detail-text">
@@ -64,7 +79,22 @@ const AccountMigrationNonRestru = (data) => {
                   {data?.data.nonrestru_workflow_account_migrate}
                 </text>
               </li>
-            </ul>
+            </ul> */}
+          </Col>
+          <Col xs={24} sm={24} md={24}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "10px",
+              }}
+            >
+              <h2>
+                <BlinkingStatus
+                  text={data?.data.nonrestru_workflow_account_status_job}
+                />
+              </h2>
+            </div>
           </Col>
         </Row>
       </div>

@@ -5,7 +5,7 @@ const fetchSuperHeroes = () => {
   //return axios.get("https://mg-api-fu5l.onrender.com/account");
   return axios.get("https://www.api.mgcanalis.tech/account");
    //return axios.get("http://localhost:3001/account");
-  // return axios.get("http://localhost:4000/account");
+  //return axios.get("http://localhost:4000/account");
 };
 
 export const useDataMg = (onSuccess, onError) => {

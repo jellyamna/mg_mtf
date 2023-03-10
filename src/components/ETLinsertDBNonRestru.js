@@ -1,5 +1,7 @@
 import React from "react";
 import { Typography, Progress, Col, Row } from "antd";
+import BlinkingStatus from "./BlinkingStatus";
+
 
 const ETLinsertDBNonRestru = (data) => {
   const { Title } = Typography;
@@ -9,29 +11,29 @@ const ETLinsertDBNonRestru = (data) => {
     nilaipersenmuf = data?.data.nonrestru_muf_persen;
     console.log(nilaipersenmuf);
   }
-  const onDone = (persen) => {
-    if (nilaipersenmuf <= 10) {
-      console.log(nilaipersenmuf);
+  // const onDone = (persen) => {
+  //   if (nilaipersenmuf <= 10) {
+  //     console.log(nilaipersenmuf);
 
-      return " #42b883";
-    }
+  //     return " #42b883";
+  //   }
 
-    return "red";
-  };
+  //   return "red";
+  // };
 
-  const onPercentReverse = (persen) => {
-    if (nilaipersenmuf === 0) {
-      console.log(nilaipersenmuf);
-      return 100;
-    }
+  // const onPercentReverse = (persen) => {
+  //   if (nilaipersenmuf === 0) {
+  //     console.log(nilaipersenmuf);
+  //     return 100;
+  //   }
 
-    return nilaipersenmuf;
-  };
+  //   return nilaipersenmuf;
+  // };
 
   return (
     <>
       <Title level={4} underline={true}>
-        1. ETL Batch Data Migration
+        1. ETL Process
       </Title>
       <br />
       {/* Account Non Restru */}
@@ -49,7 +51,7 @@ const ETLinsertDBNonRestru = (data) => {
               alignSelf: "center",
             }}
           >
-            JFMUF TO Canalis
+            JF MUF To Canalis
           </Title>
         </div>
 
@@ -64,14 +66,15 @@ const ETLinsertDBNonRestru = (data) => {
               <Progress
                 type="circle"
                 //percent={data?.data.nonrestru_muf_persen}
-                percent={`${onPercentReverse(nilaipersenmuf)}`}
-                //format={(percent) => `${percent} %`}
+                //percent={`${onPercentReverse(nilaipersenmuf)}`}
+                percent={data?.data.nonrestru_muf_persen}
+                format={(percent) => `${percent} %`}
                 //format={`${onDonePersen(nilaipersenmuf)}`}
-                format={() => {
-                  if (nilaipersenmuf === 0) {
-                    return "Done";
-                  } else return `${nilaipersenmuf} %`;
-                }}
+                // format={() => {
+                //   if (nilaipersenmuf === 0) {
+                //     return "Done";
+                //   } else return `${nilaipersenmuf} %`;
+                // }}
                 strokeWidth={10}
                 width={180}
                 //strokeColor={`${onDone(nilaipersenmuf)} `}
@@ -86,25 +89,25 @@ const ETLinsertDBNonRestru = (data) => {
                 alignSelf: "center",
               }}
             >
-              Account JFMUF yang akan dipindahkan :{" "}
+              Data JF MUF yang akan dipindahkan :{" "}
             </Title>
             <ul>
               <li>
                 {" "}
                 <text className="detail-text">
-                  Data Account :{data?.data.nonrestru_muf_static_account}
+                  Jumlah Account : {data?.data.nonrestru_muf_static_account}
                 </text>
               </li>
               <li>
                 {" "}
                 <text className="detail-text">
-                  Data Customer :{data?.data.nonrestru_muf_static_customer}
+                  Jumlah Customer : {data?.data.nonrestru_muf_static_customer}
                 </text>
               </li>
               <li>
                 {" "}
                 <text className="detail-text">
-                  Data Asset :{data?.data.nonrestru_muf_static_asset}
+                  Jumlah Asset : {data?.data.nonrestru_muf_static_asset}
                 </text>
               </li>
             </ul>
@@ -135,28 +138,42 @@ const ETLinsertDBNonRestru = (data) => {
                 alignSelf: "center",
               }}
             >
-              Account masuk ke Canalis :{" "}
+              Data yang masuk ke Canalis :{" "}
             </Title>
             <ul>
               <li>
                 {" "}
                 <text className="detail-text2">
-                  Data Account :{data?.data.nonrestru_canalis_static_account}
+                  Jumlah Account : {data?.data.nonrestru_canalis_static_account}
                 </text>
               </li>
               <li>
                 {" "}
                 <text className="detail-text2">
-                  Data Customer :{data?.data.nonrestru_canalis_static_customer}
+                  Jumlah Customer :{" "}
+                  {data?.data.nonrestru_canalis_static_customer}
                 </text>
               </li>
               <li>
                 {" "}
                 <text className="detail-text2">
-                  Data Asset :{data?.data.nonrestru_canalis_static_asset}
+                  Jumlah Asset : {data?.data.nonrestru_canalis_static_asset}
                 </text>
               </li>
             </ul>
+          </Col>
+          <Col xs={24} sm={24} md={24}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "10px",
+              }}
+            >
+              <h2>
+                <BlinkingStatus text={data?.data.nonrestru_muf_status_job} />
+              </h2>
+            </div>
           </Col>
         </Row>
       </div>
