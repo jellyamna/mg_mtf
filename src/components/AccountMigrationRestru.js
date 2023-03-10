@@ -29,7 +29,7 @@ const AccountMigrationRestru = (data) => {
         </div>
 
         <Row gutter={[10, 8]} align="top" justify="center">
-          <Col xs={24} sm={24} >
+          <Col xs={24} sm={24}>
             <div
               style={{
                 display: "flex",
@@ -43,10 +43,11 @@ const AccountMigrationRestru = (data) => {
                 format={(percent) => `${percent} %`}
                 strokeWidth={10}
                 width={180}
+                strokeColor="green"
               />
             </div>
           </Col>
-          <Col xs={24} sm={24} >
+          <Col xs={24} sm={24}>
             <div
               style={{
                 display: "flex",

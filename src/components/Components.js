@@ -58,6 +58,7 @@ const Components = () => {
         <div className="card">
           <br />
           <div className="circle">
+            <Title level={5}>Last Update : {data?.data.date}</Title>
             <Title level={3}> ##Account Non Restru##</Title>
             <Divider />
             {/* part 1 */}
@@ -105,11 +106,8 @@ const Components = () => {
               paddingBottom: "1",
             }}
           >
-
             <footer>
-              <p>
-               10 - 13 Maret 2023
-              </p>
+              <p>10 - 13 Maret 2023</p>
             </footer>
           </div>
         </div>
