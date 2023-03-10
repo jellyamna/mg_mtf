@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Progress, Col, Row } from "antd";
 import BlinkingStatus from "./BlinkingStatus";
+import StartDate from "./StartDate";
 
 const AuditQuery = (data) => {
   const { Title } = Typography;
@@ -61,6 +62,11 @@ const AuditQuery = (data) => {
                 />
               </h2>
             </div>
+            <StartDate
+              startdate={data?.data.audit_query_persen_start_date}
+              enddate={data?.data.audit_query_persen_end_date}
+              status={data?.data.audit_query_persen_status_job}
+            />
           </Col>
         </Row>
       </div>

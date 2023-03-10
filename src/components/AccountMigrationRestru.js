@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Progress, Col, Row } from "antd";
 import BlinkingNum from "./BlinkingNum";
 import BlinkingStatus from "./BlinkingStatus";
+import StartDate from "./StartDate";
 
 const AccountMigrationRestru = (data) => {
   const { Title } = Typography;
@@ -95,6 +96,11 @@ const AccountMigrationRestru = (data) => {
                 />
               </h2>
             </div>
+            <StartDate
+              startdate={data?.data.restru_workflow_account_start_date}
+              enddate={data?.data.restru_workflow_account_end_date}
+              status={data?.data.restru_workflow_account_status_job}
+            />
           </Col>
         </Row>
       </div>

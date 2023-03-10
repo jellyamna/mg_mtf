@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Progress, Col, Row } from "antd";
 import BlinkingStatus from "./BlinkingStatus";
+import StartDate from "./StartDate";
 
 const ETLinsertDBRestru = (data) => {
   const { Title } = Typography;
@@ -171,6 +172,11 @@ const ETLinsertDBRestru = (data) => {
                 <BlinkingStatus text={data?.data.restru_muf_status_job} />
               </h2>
             </div>
+            <StartDate
+              startdate={data?.data.restru_etl_start_date}
+              enddate={data?.data.restru_etl_end_date}
+              status={data?.data.restru_muf_status_job}
+            />
           </Col>
         </Row>
       </div>

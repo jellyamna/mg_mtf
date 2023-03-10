@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Progress, Col, Row, Divider } from "antd";
 import BlinkingNum from "./BlinkingNum";
 import BlinkingStatus from "./BlinkingStatus";
+import StartDate from "./StartDate";
 
 const CustomerAssetRestru = (data) => {
   const { Title } = Typography;
@@ -95,6 +96,11 @@ const CustomerAssetRestru = (data) => {
                 />
               </h2>
             </div>
+            <StartDate
+              startdate={data?.data.restru_workflow_customer_start_date}
+              enddate={data?.data.restru_workflow_customer_end_date}
+              status={data?.data.restru_workflow_customer_status_job}
+            />
           </Col>
         </Row>
       </div>
@@ -188,6 +194,11 @@ const CustomerAssetRestru = (data) => {
                 />
               </h2>
             </div>
+            <StartDate
+              startdate={data?.data.restru_workflow_asset_start_date}
+              enddate={data?.data.restru_workflow_asset_end_date}
+              status={data?.data.restru_workflow_asset_status_job}
+            />
           </Col>
         </Row>
       </div>
