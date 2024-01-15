@@ -4,8 +4,8 @@ import axios from "axios";
 const fetchSuperHeroes = () => {
   //return axios.get("https://mg-api-fu5l.onrender.com/account");
   //return axios.get("https://www.api.mgcanalis.tech/account");
-   //return axios.get("http://localhost:3001/account");
-  return axios.get("https://jellyamna.github.io/mtf/db.json");
+   return axios.get("https://api-08az.onrender.com/account");
+ // return axios.get("http://localhost:4000/account");
 };
 
 export const useDataMg = (onSuccess, onError) => {

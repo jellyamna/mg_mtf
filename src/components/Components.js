@@ -52,7 +52,7 @@ const Components = () => {
             style={{ fontSize: "36px", color: "#08c" }}
             className="iconchar"
           />
-          <Title level={3}> Dashboard DM JF MUF to Canalis</Title>
+          <Title level={3}> Dashboard DM JF MTF to Canalis</Title>
         </div>
 
         <div className="card">
@@ -72,7 +72,7 @@ const Components = () => {
           </div>
           <br />
           <br />
-          <div className="circle">
+          {/* <div className="circle">
             <Title level={3}>## Account Restru ##</Title>
             <Divider />
             <ETLinsertDBRestru data={data?.data} />
@@ -80,7 +80,7 @@ const Components = () => {
             <CustomerAssetRestru data={data?.data} />
             <Divider />
             <AccountMigrationRestru data={data?.data} />
-          </div>
+          </div> */}
           <br />
           <br />
           <div className="circle">

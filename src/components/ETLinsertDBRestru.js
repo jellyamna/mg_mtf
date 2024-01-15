@@ -51,7 +51,7 @@ const ETLinsertDBRestru = (data) => {
               alignSelf: "center",
             }}
           >
-            JF MUF To Canalis
+            JF MTF To Canalis
           </Title>
         </div>
 
@@ -88,7 +88,7 @@ const ETLinsertDBRestru = (data) => {
                 alignSelf: "center",
               }}
             >
-              Data JF MUF yang akan dipindahkan :{" "}
+              Data JF MTF yang akan dipindahkan :{" "}
             </Title>
             <ul>
               <li>
